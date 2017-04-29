@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>DustBin</title>
+  <link rel="stylesheet" href="css/ek/ek.min.css">
   <link rel="stylesheet" href="css/index.css">
   <script src="js/components/requirejs/require.js" data-main="js/main"></script>
 </head>
 <body>
-  <div id="editor">function foo(items) {
-      var x = "All this is syntax highlighted";
-      return x;
-  }
+  <header class="row">
+    <div class="col-6">Sample</div>
+    <div class="col-6">
+      <button id="upload-button" class="btn btn-primary">Upload</button>
+    </div>
+  </header>
+  <div class="row editor-container">
+    <div id="editor">function foo(items) {
+        var x = "All this is syntax highlighted";
+        return x;
+    }
+    </div>
   </div>
 </body>
 </html>

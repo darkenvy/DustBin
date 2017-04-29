@@ -1,0 +1,106 @@
+/* Widths */
+.w100p {
+  width: 100%; }
+
+.w10 {
+  width: 1024px; }
+
+.w9 {
+  width: 960px; }
+
+.w8 {
+  width: 800px; }
+
+.w7 {
+  width: 768px; }
+
+.w6 {
+  width: 640px; }
+
+.w5 {
+  width: 540px; }
+
+.w4 {
+  width: 480px; }
+
+.w3 {
+  width: 320px; }
+
+.w2 {
+  width: 240px; }
+
+.w1 {
+  width: 100px; }
+
+.max-width-10 {
+  max-width: 1024px; }
+
+.max-width-9 {
+  max-width: 960px; }
+
+.max-width-8 {
+  max-width: 800px; }
+
+.max-width-7 {
+  max-width: 768px; }
+
+.max-width-6 {
+  max-width: 640px; }
+
+.max-width-5 {
+  max-width: 540px; }
+
+.max-width-4 {
+  max-width: 480px; }
+
+.max-width-3 {
+  max-width: 320px; }
+
+.max-width-2 {
+  max-width: 240px; }
+
+.max-width-1 {
+  max-width: 100px; }
+
+/* Heights */
+.h100p {
+  height: 100%; }
+
+.h10 {
+  height: 1024px; }
+
+.h9 {
+  height: 960px; }
+
+.h8 {
+  height: 800px; }
+
+.h7 {
+  height: 768px; }
+
+.h6 {
+  height: 640px; }
+
+.h5 {
+  height: 540px; }
+
+.h4 {
+  height: 480px; }
+
+.h3 {
+  height: 320px; }
+
+.h2 {
+  height: 240px; }
+
+.h1 {
+  height: 100px; }
+
+.circle {
+  border-radius: 50%; }
+
+/* Development */
+.place-img {
+  background-image: url("http://lorempixel.com/1024/768");
+  width: 800px;
+  height: 640px; }

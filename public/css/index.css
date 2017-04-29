@@ -1,7 +1,14 @@
-#editor { 
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+/* Rig to get the coding box to fit 100% 
+   Don't add to these. Keep them seperate intentionally */
+html, body {
+  height: 100%;
 }
+.editor-container {
+  height: calc(100% - 46px);
+}
+#editor { 
+  width: 100%;
+  height: 100%;
+}
+
+/* All other styles */

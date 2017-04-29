@@ -1,0 +1,38 @@
+/* ======= ek.css Primary is for smart configuration ====== */
+body {
+  font-weight: 300; }
+
+/* Responsive Image sizing */
+/* Simply add max-height to img-smart */
+.img {
+  width: 100%;
+  overflow-y: hidden; }
+  .img img {
+    width: 100%;
+    height: auto; }
+
+/* Displays */
+.hidden {
+  display: none; }
+
+.inline {
+  display: inline; }
+
+.binline {
+  display: inline-block; }
+
+/* Misc */
+.center {
+  margin: 0 auto; }
+
+.text-center {
+  text-align: center; }
+
+/* Tools */
+.flex {
+  display: flex; }
+
+.flex-auto {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start; }
