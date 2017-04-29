@@ -1,0 +1,22 @@
+{
+  "name": "dustbin",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "darkenvy <darkenvy6@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/js/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ace-builds": "^1.2.6",
+    "requirejs": "^2.3.3"
+  }
+}
