@@ -1,6 +1,6 @@
 views/public/js/components
 # Created by https://www.gitignore.io/api/node,osx
-
+raw_pastes/*
 ### Node ###
 # Logs
 logs
