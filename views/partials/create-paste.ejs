@@ -1,9 +1,27 @@
   <% include header %>
   <script data-main="/js/createPaste" src="/js/components/requirejs/require.js"></script>
-  <header class="row">
-    <div class="col-6">Sample</div>
-    <div class="col-6">
-      <button id="upload-button" class="btn btn-primary">Upload</button>
+  <header class="expanded row toolbar">
+    <div class="columns small-6">
+      <button id="home-button" class="button secondary"><i class="icon icon-home"></i></button>
+      <p class="head-text">New Paste</p> 
     </div>
+
+    <div class="columns small-2 text-right no-padding">
+      <button id="config-button" class="button secondary"><i class="icon icon-wrench"></i></button>
+      <button id="expiration-button" class="button secondary"><i class="icon icon-clock"></i></button>
+    </div>
+
+    <div class="columns small-4">
+      <div class="columns small-10 select-box text-center">
+        <select class="text-type-select">
+          <option value="JS">Javascript</option>
+          <option value="HTML">HTML</option>
+        </select>
+      </div>
+      <button id="upload-button" class="button primary"><i class="icon icon-floppy"></i></button>
+    </div>
+
+    
+
   </header>
   <% include footer %>

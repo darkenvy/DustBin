@@ -10,12 +10,13 @@ require.config({
          + window.location.pathname.split("/").slice(0, -1).join("/"),
   paths: {
     ace: "/js/components/ace-builds/src",
-    jquery: "/js/components/jquery/dist/jquery"
+    jquery: "/js/components/jquery/dist/jquery",
+    select2: "/js/components/select2/dist/js/select2"
   }
 });
 
-require(["jquery", "ace/ace", "crypto-js"], function ($, ace, CryptoJS) { // jshint ignore:line
-  
+require(["jquery", "ace/ace", "crypto-js", "select2"], function ($, ace, CryptoJS, select2) { // jshint ignore:line
+  console.log(select2);
   // ----------- Editor Setup ----------- //
   var editor = ace.edit("editor");
   editor.setValue("", -1);

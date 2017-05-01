@@ -10,14 +10,18 @@ require.config({
          + window.location.pathname.split("/").slice(0, -1).join("/"),
   paths: {
     ace: "/js/components/ace-builds/src",
-    jquery: "/js/components/jquery/dist/jquery"
+    jquery: "/js/components/jquery/dist/jquery",
+    select2: "/js/components/select2/dist/js/select2"
   }
 });
 
-require(["jquery", "ace/ace", "crypto-js"], function ($, ace, CryptoJS) {
+require(["jquery", "ace/ace", "crypto-js", "select2"], function ($, ace, CryptoJS, select2) {
+  // console.log(select2);
+  $(".text-type-select").select2();
   // ----------- Editor Setup ----------- //
   var editor = ace.edit("editor");
-  editor.setTheme("ace/theme/monokai");
+  // editor.setTheme("ace/theme/monokai");
+  editor.setTheme("ace/theme/tomorrow_night");
   editor.getSession().setMode("ace/mode/javascript");
 
 
