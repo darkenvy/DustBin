@@ -21,7 +21,8 @@ require(["jquery", "ace/ace", "crypto-js", "select2"], function ($, ace, CryptoJ
   var editor = ace.edit("editor");
   editor.setValue("", -1);
   editor.setReadOnly(true);
-  editor.setTheme("ace/theme/monokai");
+  // editor.setTheme("ace/theme/monokai");
+  editor.setTheme("ace/theme/tomorrow_night");
   editor.getSession().setMode("ace/mode/javascript");
 
   var privateKey,

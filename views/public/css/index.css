@@ -5,7 +5,7 @@ html, body {
   background-color: #2A2A2A;
 }
 .editor-container {
-  height: calc(100% - 46px);
+  height: calc(100% - 52px);
 }
 #editor { 
   width: 100%;
@@ -16,8 +16,12 @@ html, body {
 
 /* All other styles */
 
+body {
+  min-width: 650px;
+}
+
 .no-padding {
-  padding: 0
+  padding: 0;
   padding-left: 0;
   padding-right: 0;
 }
@@ -33,6 +37,8 @@ html, body {
   color: white;
   background-color: #2A2A2A;
   border-bottom: 1px solid #4a4a4a;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .select-box {
@@ -41,24 +47,37 @@ html, body {
   padding-left: 0;
 }
 
-.select2-hidden-accessible {
-  /*margin: 10px 0 !important;*/
-  /*width: 250px !important;*/
-  /*height: 28px !important;*/
-}
-
 .icon {
   font-size: 20px;
 }
 
+/* Buttons */
 .button {
+  /*width: 100%;*/
+  /*max-width: 28px;*/
   margin: 10px 0;
   padding: 3px 10px;
   border-radius: 4px;
   text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
   -webkit-font-smoothing: antialiased;
-}
-
-.button.primary {
   border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
 }
+
+.button:focus {
+  background: none;
+}
+
+.primary {
+  border-top: 1px solid #61a8d6;
+}
+
+.secondary {
+  border-top: 1px solid #989898;
+}
+
+
+.select2-container {
+  width: 100% !important;
+  margin-top: 10px;
+}
+
