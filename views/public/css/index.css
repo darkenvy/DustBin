@@ -81,3 +81,6 @@ body {
   margin-top: 10px;
 }
 
+.select2-results {
+  font-size: 80%;
+}

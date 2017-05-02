@@ -16,13 +16,11 @@ require.config({
 });
 
 require(["jquery", "ace/ace", "crypto-js", "select2"], function ($, ace, CryptoJS, select2) {
-  // console.log(select2);
   $(".text-type-select").select2();
   // ----------- Editor Setup ----------- //
   var editor = ace.edit("editor");
-  // editor.setTheme("ace/theme/monokai");
   editor.setTheme("ace/theme/tomorrow_night");
-  editor.getSession().setMode("ace/mode/javascript");
+  editor.getSession().setMode("ace/mode/plain_text");
 
 
   // ----------- Init ----------- //
@@ -44,6 +42,12 @@ require(["jquery", "ace/ace", "crypto-js", "select2"], function ($, ace, CryptoJ
   console.log('public: ', publicKey);
   
   // ----------- Event Listeners ----------- //
+  $(".text-type-select").on("select2:select", function (e) { 
+    var selectedTextType = this.options[this.selectedIndex].value;
+    console.log(selectedTextType);
+    editor.getSession().setMode("ace/mode/" + selectedTextType);
+  });
+  // $(".text-type-select").on("change", function (e) { console.log("change", e); });
   $('#upload-button').click(function() {
     //  Encryption
     var encText = CryptoJS.AES.encrypt(editor.getValue(), privateKey);

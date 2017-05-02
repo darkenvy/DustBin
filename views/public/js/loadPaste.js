@@ -21,7 +21,6 @@ require(["jquery", "ace/ace", "crypto-js", "select2"], function ($, ace, CryptoJ
   var editor = ace.edit("editor");
   editor.setValue("", -1);
   editor.setReadOnly(true);
-  // editor.setTheme("ace/theme/monokai");
   editor.setTheme("ace/theme/tomorrow_night");
   editor.getSession().setMode("ace/mode/javascript");
 
@@ -35,8 +34,8 @@ require(["jquery", "ace/ace", "crypto-js", "select2"], function ($, ace, CryptoJ
       type: 'UNLOCK',
       url: '/verify',
       data: {
-        hash: publicKey, 
-        pasteID: pasteID
+        pasteID: pasteID,
+        hash: publicKey 
       },
       success: function(data, statusCode){ // jshint ignore:line
         var decText = CryptoJS.AES.decrypt(data, privateKey);

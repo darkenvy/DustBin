@@ -42,8 +42,10 @@ app.unlock('/verify', function(req, res) {
   //   pasteID: 'pw'
   // }
   // console.log(req.body);
+  console.log('---------------hashids: ', hashids.decode('jr'));
   let pasteID = hashids.decode(req.body.pasteID)[0];
-  console.log(pasteID);
+  console.log('req body:', req.body);
+  console.log('pasteID: ',pasteID);
 
   db.paste.find({
     where: {id: pasteID}
@@ -53,7 +55,7 @@ app.unlock('/verify', function(req, res) {
     console.log('here ', req.body);
     if (paste.hash === req.body.hash) {
       let path = pastePath + paste.id + '.txt';
-      let readFileCB = (err, data) => {
+      let readFileCB = function(err, data) {
         if (err) console.log(err);
         res.status(200).send(data);
       }
