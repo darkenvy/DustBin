@@ -27,16 +27,17 @@ body {
 }
 
 .head-text {
-  font-size: 18px;
-  margin-left: 5px;
+  vertical-align: middle;
+  font-size: 21px;
+  margin-left: 8px;
   font-weight: bold;
   display: inline;
 }
 
 .toolbar {
   color: white;
-  background-color: #2A2A2A;
-  border-bottom: 1px solid #4a4a4a;
+  background-color: #25282c;
+  border-bottom: 1px solid #464646;
   margin-left: 0;
   margin-right: 0;
 }
@@ -53,9 +54,7 @@ body {
 
 /* Buttons */
 .button {
-  /*width: 100%;*/
-  /*max-width: 28px;*/
-  margin: 10px 0;
+  margin: 5px 0;
   padding: 3px 10px;
   border-radius: 4px;
   text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
@@ -78,7 +77,13 @@ body {
 
 .select2-container {
   width: 100% !important;
-  margin-top: 10px;
+  margin-top: 5px;
+}
+
+/* Recalibrate only the dropdown menu. Has the same class as
+   another element, so we say the one that is child of body */
+body > span.select2-container {
+  top: 26px !important;
 }
 
 .select2-results {
