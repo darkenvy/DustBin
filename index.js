@@ -13,15 +13,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
 
-// Test Paste:
-// #5 /pw
-// pub: f0982c109e6aef0ca15c27043de58d149e2506a7
-// priv: f5acf870a48467a5ed6228c6b52c14167ec13c80
-
-// #10 /rv
-// private:  f28d759399c13cee0852517bc146fd9108408d01
-// public:  71a746a232fd5d672c2d9586d1715b784e61b763
-
 app.get('/', (req, res) => {
   res.render('partials/create-paste');
 });
@@ -32,21 +23,10 @@ app.get('/:pasteID', function(req, res) {
 
 app.get('/:pasteID/:key', function(req, res) {
   res.render('partials/load-paste');
-  // res.send(JSON.stringify(req.params))
 });
 
 app.unlock('/verify', function(req, res) {
-  // monkey-patch for testing. Since Postman doesnt support body in UNLOCK
-  // req.body = {
-  //   hash: 'f0982c109e6aef0ca15c27043de58d149e2506a7', 
-  //   pasteID: 'pw'
-  // }
-  // console.log(req.body);
-  console.log('---------------hashids: ', hashids.decode('jr'));
   let pasteID = hashids.decode(req.body.pasteID)[0];
-  console.log('req body:', req.body);
-  console.log('pasteID: ',pasteID);
-
   db.paste.find({
     where: {id: pasteID}
   })
