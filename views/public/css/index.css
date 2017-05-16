@@ -103,8 +103,21 @@ input.copy-box {
   border: none;
 }
 
+#paste-box {
+  border: 1px solid #ddd;
+  height: 20px;
+  width: 320px;
+}
+
 .block {
   margin: 15px 0;
   padding: 10px 30px;
   color: #222;
+  min-height: 50px;
+}
+
+#decrypt-btn {
+  margin-top: 10px;
+  height: 20px;
+  line-height: 0;
 }

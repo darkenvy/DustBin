@@ -63,24 +63,24 @@ require(["jquery"], function($) {
       //  Encryption
       var encText = CryptoJS.AES.encrypt(editor.getValue(), privateKey);
       
-      // $.ajax({
-      //   method: 'POST',
-      //   url: '/upload',
-      //   data: {
-      //     publicKey: publicKey,
-      //     encPaste: encText.toString()
-      //   },
-      //   timeout: 30000,
-      //   success: function(data, statusCode) {
-      //     console.log('data: ', data);
-      //     // $('#site-box').val()
-      //     // $('#priv-box').val()
-      //     // $('#site-priv-box').val()
-      //   },
-      //   error: function(xhr, statusCode, error) {
-      //     console.log('error: ', error);
-      //   }
-      // });
+      $.ajax({
+        method: 'POST',
+        url: '/upload',
+        data: {
+          publicKey: publicKey,
+          encPaste: encText.toString()
+        },
+        timeout: 30000,
+        success: function(data, statusCode) {
+          console.log('data: ', data);
+          $('#site-box').val(data)
+          $('#priv-box').val(privateKey)
+          $('#site-priv-box').val(data + '/' + privateKey)
+        },
+        error: function(xhr, statusCode, error) {
+          console.log('error: ', error);
+        }
+      });
     });
 
     // ----------- Decryption ----------- //
