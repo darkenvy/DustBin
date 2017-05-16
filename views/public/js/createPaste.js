@@ -56,6 +56,7 @@ require(["jquery"], function($) {
     });
 
     $('#upload-button').click(function() {
+      if (editor.getValue().length < 4) return;
       $(this).hide();
       $('.modal').modal();
       $('#review-button').toggleClass('hide', false);
