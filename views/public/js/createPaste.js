@@ -27,6 +27,8 @@ require(["jquery"], function($) {
     // ----------- Init ----------- //
     // $('.modal').modal() // Init the modal
     $(".text-type-select").select2(); // Init the dropdown plugin
+    $('.copy-box').each(function(idx, item) {item.readOnly = true})
+    $('.copy-box').click(function() {this.select()})
 
     var randomNonce = function(len) {
       var text = '';
@@ -71,6 +73,9 @@ require(["jquery"], function($) {
       //   timeout: 30000,
       //   success: function(data, statusCode) {
       //     console.log('data: ', data);
+      //     // $('#site-box').val()
+      //     // $('#priv-box').val()
+      //     // $('#site-priv-box').val()
       //   },
       //   error: function(xhr, statusCode, error) {
       //     console.log('error: ', error);

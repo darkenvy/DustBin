@@ -21,10 +21,30 @@
 
     <!-- Popup Modal -->
     <div class="modal fade">
-      <div class="header">Head</div>
-      <div class="content">Content</div>
-      <div class="footer">Footer</div>
+
+      <div class="block text-center">
+        <h3>More Secure</h3>
+        <label> Site Link
+          <input id="site-box" class="copy-box" value="">
+        </label>
+        <label>Private Key
+          <input id="priv-box" class="copy-box" value="">
+        </label>
+      </div>
+      
+      <div class="block text-center">
+        <h3>More Convenient</h3>
+        <label>Site + Private
+          <input id="site-priv-box" class="copy-box" value="">
+        </label>
+      </div>
+      
+      <div class="block">
+        <p>Be advised that using the 'more convenient' link exposes the private key to the internet & the server.</p>
+        <p>For extra privacy, utilize the 'more secure' option which seperates the key from the paste request. Feel free to visit the project on Github and take encryption into your control.</p>
+      </div>
     </div>
+    <!-- End Modal -->
 
   </header>
   <% include footer %>

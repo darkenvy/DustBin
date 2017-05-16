@@ -89,3 +89,22 @@ body > span.select2-container {
 .select2-results {
   font-size: 80%;
 }
+
+/* Modal CSS */
+
+.modal {
+  border-radius: 5px;
+}
+
+input.copy-box {
+  width: 320px;
+  cursor: text;
+  color: #333;
+  border: none;
+}
+
+.block {
+  margin: 15px 0;
+  padding: 10px 30px;
+  color: #222;
+}
