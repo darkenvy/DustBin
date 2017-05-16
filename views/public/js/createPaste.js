@@ -25,7 +25,7 @@ require(["jquery"], function($) {
 
 
     // ----------- Init ----------- //
-
+    // $('.modal').modal() // Init the modal
     $(".text-type-select").select2(); // Init the dropdown plugin
 
     var randomNonce = function(len) {
@@ -49,8 +49,15 @@ require(["jquery"], function($) {
       editor.getSession().setMode("ace/mode/" + selectedTextType);
     });
 
+    $('#review-button').click(function() {
+      $('.modal').modal();
+    });
+
     $('#upload-button').click(function() {
       $(this).hide();
+      $('.modal').modal();
+      $('#review-button').toggleClass('hide', false);
+      editor.setReadOnly(true);
       //  Encryption
       var encText = CryptoJS.AES.encrypt(editor.getValue(), privateKey);
       
