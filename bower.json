@@ -20,6 +20,7 @@
     "requirejs": "^2.3.3",
     "jquery": "^3.2.1",
     "crypto-js": "^3.1.9",
-    "select2": "^4.0.3"
+    "select2": "^4.0.3",
+    "modal": "^1.1.9"
   }
 }
