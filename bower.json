@@ -1,6 +1,6 @@
 {
-  "name": "dustbin",
-  "description": "",
+  "name": "encryptous",
+  "description": "A disolving encryption-based paste repository.",
   "main": "index.js",
   "authors": [
     "darkenvy <darkenvy6@gmail.com>"
