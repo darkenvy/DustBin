@@ -1,3 +1,5 @@
+/* Icon made by Freepik from www.flaticon.com */
+
 /* Rig to get the coding box to fit 100% 
    Don't add to these. Keep them seperate intentionally */
 html, body {
@@ -120,4 +122,9 @@ input.copy-box {
   margin-top: 10px;
   height: 20px;
   line-height: 0;
+}
+
+/* Fixes issue of invisible modal being clickable */
+.modal.fade {
+  z-index: -1;
 }

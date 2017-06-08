@@ -14,12 +14,12 @@
 
 * API documentation & how-to
 * How it works explanation on site
+* Help button on bottom-right
 * Auto-destruction
 * Record paste-language as a prefix in decrypted paste. Ergo even that metadata is hidden
-* Help button on bototm-right
-* SSL-Cert
-* Clicking focus dead-zone in middle of screen
-* Favicon
-* Icon
-* Front-End Redesign
 * Bitcoin donation address
+* Icon
+* Favicon
+* Front-End Redesign
+
+*Icon made by [Freepik](http://www.flaticon.com/authors/freepik) from www.flaticon.com*

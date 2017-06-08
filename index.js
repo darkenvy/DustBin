@@ -11,8 +11,8 @@ let express    = require('express'),
 
 app.use(express.static('views/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
   res.render('partials/create-paste');
@@ -63,18 +63,23 @@ app.post('/upload', (req, res) => {
   });
 });
 
-// Development Hosting
-// console.log('Listening on port 3000');
-// app.listen(3000)
+// Launch Environment
+if (process.env.ENVIRONMENT === "DEV") {
+  // Development Hosting
+  console.log('Listening on port 3000 in Dev Environement');
+  app.listen(3000)
+} else {
+  // SSL Hosting
+  let privateKey  = fs.readFileSync('../certs/privkey.pem', 'utf8');
+  let certificate = fs.readFileSync('../certs/cert.pem', 'utf8');
+  let credentials = {key: privateKey, cert: certificate};
 
-// SSL Hosting
-let privateKey  = fs.readFileSync('../certs/privkey.pem', 'utf8');
-let certificate = fs.readFileSync('../certs/cert.pem', 'utf8');
-let credentials = {key: privateKey, cert: certificate};
+  let httpsServer = https.createServer(credentials, app);
+  let http = express();
+  http.get('*', (req,res) => res.redirect('https://encrypto.us/'));
 
-let httpsServer = https.createServer(credentials, app);
-let http = express();
-http.get('*', (req,res) => res.redirect('https://encrypto.us/'));
+  console.log('Hosting on port 80 & 443 on Production Environment');
+  httpsServer.listen(8443);
+  http.listen(8080);
+}
 
-httpsServer.listen(8443);
-http.listen(8080);
