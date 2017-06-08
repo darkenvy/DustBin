@@ -4,7 +4,8 @@
 
 * bower install
 * mkdir raw_pastes
-* sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 3000
+* sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
+* sudo iptables -t nat -I PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 8443
 * createdb ubuntu  #User is ubuntu
 * npm install -g sequelize-cli forever
 * sequelize db:migrate

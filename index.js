@@ -2,6 +2,7 @@ require('dotenv').config();
 let express    = require('express'),
     bodyParser = require('body-parser'),
     fs         = require('fs'),
+    https      = require('http'),
     https      = require('https'),
     db         = require('./models'),
     Hashids    = require('hashids'),
@@ -63,16 +64,20 @@ app.post('/upload', (req, res) => {
   });
 });
 
-
+// Development Hosting
 // console.log('Listening on port 3000');
 // app.listen(3000)
-;
+
+// SSL Hosting
 let privateKey  = fs.readFileSync('../certs/privkey.pem', 'utf8');
 let certificate = fs.readFileSync('../certs/cert.pem', 'utf8');
 let credentials = {key: privateKey, cert: certificate};
 
-console.log('privatekey', privateKey);
-console.log('certificate', certificate);
-
 let httpsServer = https.createServer(credentials, app);
+let http = express.createServer();
+http.get('*',function(req,res){  
+  res.redirect('https://encrypto.us/')
+})
+
 httpsServer.listen(8443);
+httpServer.listen(8080);
