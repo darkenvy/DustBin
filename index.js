@@ -2,7 +2,7 @@ require('dotenv').config();
 let express    = require('express'),
     bodyParser = require('body-parser'),
     fs         = require('fs'),
-    https      = require('http'),
+    http       = require('http'),
     https      = require('https'),
     db         = require('./models'),
     Hashids    = require('hashids'),
