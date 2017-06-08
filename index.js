@@ -69,7 +69,10 @@ app.post('/upload', apiLimiter, (req, res) => {
     }
     fs.writeFile(path, req.body.encPaste, writeFileCB);
   })
-  .catch(error => res.status(500).send('A Database Error Has Occured: ' + error))
+  .catch(error => {
+    console.log('DB Error: ', error);
+    res.status(500).send('A Database Error Has Occured: ' + error)
+  })
 });
 
 // Launch Environment
