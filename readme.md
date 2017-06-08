@@ -19,7 +19,7 @@
 * Record paste-language as a prefix in decrypted paste. Ergo even that metadata is hidden
 * Bitcoin donation address
 * Icon
-* Favicon
 * Front-End Redesign
+* Create loading animation for uploading paste so that rate-limiter can perform and the user knows it's loading.
 
 *Icon made by [Freepik](http://www.flaticon.com/authors/freepik) from www.flaticon.com*

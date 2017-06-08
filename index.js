@@ -7,12 +7,25 @@ let express    = require('express'),
     Hashids    = require('hashids'),
     hashids    = new Hashids(process.env.TABLE_ID_HASH),
     app        = express(),
+    RateLimit  = require('express-rate-limit'),
     pastePath  = __dirname + '/raw_pastes/';
 
+let apiLimiter = new RateLimit({
+  windowMs: 10*60*1000, // 1 minute(s) 
+  max: 10,
+  // delayAfter: 2,
+  delayMs: 0 // 3000
+});
+
+// app.use('/test', apiLimiter, ()=>console.log('middleware hit'));
 app.use(express.static('views/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(require('morgan')('dev'));
 app.set('view engine', 'ejs');
+
+app.unlock('/test', apiLimiter, (req, res) => {
+  res.send('success')
+})
 
 app.get('/', (req, res) => {
   res.render('partials/create-paste');

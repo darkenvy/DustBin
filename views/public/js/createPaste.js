@@ -80,6 +80,10 @@ require(["jquery"], function($) {
         },
         error: function(xhr, statusCode, error) {
           console.log('error: ', error);
+          if (xhr.status === 429) {
+            alert("Too Many Requests");
+            $('#upload-button').show();
+          }
         }
       });
     });
