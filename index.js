@@ -2,6 +2,7 @@ require('dotenv').config();
 let express    = require('express'),
     bodyParser = require('body-parser'),
     fs         = require('fs'),
+    https      = require('https'),
     db         = require('./models'),
     Hashids    = require('hashids'),
     hashids    = new Hashids(process.env.TABLE_ID_HASH),
@@ -63,5 +64,15 @@ app.post('/upload', (req, res) => {
 });
 
 
-console.log('Listening on port 3000');
-app.listen(3000);
+// console.log('Listening on port 3000');
+// app.listen(3000)
+;
+let privateKey  = fs.readFileSync('../certs/privkey.pem', 'utf8');
+let certificate = fs.readFileSync('../certs/cert.pem', 'utf8');
+let credentials = {key: privateKey, cert: certificate};
+
+console.log('privatekey', privateKey);
+console.log('certificate', certificate);
+
+let httpsServer = https.createServer(credentials, app);
+httpsServer.listen(8443);
