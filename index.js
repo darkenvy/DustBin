@@ -57,7 +57,7 @@ app.post('/upload', (req, res) => {
     let path = pastePath + paste.id + '.txt';
     let writeFileCB = err => {
       if (err) console.log(err);
-      res.status(200).send('localhost:3000/' + hashids.encode(paste.id));
+      res.status(200).send('https://encrypto.us/' + hashids.encode(paste.id));
     }
     fs.writeFile(path, req.body.encPaste, writeFileCB);
   });
