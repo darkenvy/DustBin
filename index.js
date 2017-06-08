@@ -12,7 +12,7 @@ let express    = require('express'),
 
 let apiLimiter = new RateLimit({
   windowMs: 10*60*1000, // 1 minute(s) 
-  max: 10,
+  max: 5,
   // delayAfter: 2,
   delayMs: 0 // 3000
 });
@@ -22,10 +22,6 @@ app.use(express.static('views/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(require('morgan')('dev'));
 app.set('view engine', 'ejs');
-
-app.unlock('/test', apiLimiter, (req, res) => {
-  res.send('success')
-})
 
 app.get('/', (req, res) => {
   res.render('partials/create-paste');
@@ -44,7 +40,6 @@ app.unlock('/verify', function(req, res) {
   db.paste.find({
     where: {id: pasteID}
   })
-  .catch(error => res.status(500).send('error: ' + error))
   .then(paste => {
     console.log('here ', req.body);
     if (paste.hash === req.body.hash) {
@@ -57,15 +52,15 @@ app.unlock('/verify', function(req, res) {
     } else {
       res.status(401).send('Public Key does not match');
     }
-  });
+  })
+  .catch(error => res.status(500).send('error: ' + error))
 });
 
-app.post('/upload', (req, res) => {
+app.post('/upload', apiLimiter, (req, res) => {
   db.paste.create({
     hash: req.body.publicKey,
     expire: parseInt(new Date().valueOf() / 1000 + 30*24*60*60) // 1 month later
   })
-  .catch(error => res.status(500).send('A Database Error Has Occured: ' + error))
   .then(paste => {
     let path = pastePath + paste.id + '.txt';
     let writeFileCB = err => {
@@ -73,7 +68,8 @@ app.post('/upload', (req, res) => {
       res.status(200).send('https://encrypto.us/' + hashids.encode(paste.id));
     }
     fs.writeFile(path, req.body.encPaste, writeFileCB);
-  });
+  })
+  .catch(error => res.status(500).send('A Database Error Has Occured: ' + error))
 });
 
 // Launch Environment

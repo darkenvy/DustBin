@@ -83,6 +83,11 @@ require(["jquery"], function($) {
           if (xhr.status === 429) {
             alert("Too Many Requests");
             $('#upload-button').show();
+            $('#review-button').hide();
+          } else if (xhr.status === 500) {
+            alert("500 Internal Server Error");
+            $('#upload-button').show();
+            $('#review-button').hide();
           }
         }
       });
