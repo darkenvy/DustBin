@@ -73,10 +73,8 @@ let certificate = fs.readFileSync('../certs/cert.pem', 'utf8');
 let credentials = {key: privateKey, cert: certificate};
 
 let httpsServer = https.createServer(credentials, app);
-let http = express.createServer();
-http.get('*',function(req,res){  
-  res.redirect('https://encrypto.us/')
-})
+let http = express();
+http.get('*', (req,res) => res.redirect('https://encrypto.us/'));
 
 httpsServer.listen(8443);
-httpServer.listen(8080);
+http.listen(8080);
